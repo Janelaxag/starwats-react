@@ -1,17 +1,25 @@
-import PeoplePage from "@container/PeoplePage";
-import HomePage from "@container/HomePage";
+import { Routes, Route } from "react-router-dom";
+import Header from "@components/Header";
 
-import { Routes, Route, Link } from "react-router-dom";
+import routesConfig from "@routes/routesConfig";
+
+import styles from './App.module.css'
 
 const App = () => {
     return (
         <>
-            <Link to='/'>Home</Link>
-            <Link to='/people'>People</Link>
-            <Routes>
-                <Route path='/' element={<HomePage />} />
-                <Route path='/people' element={<PeoplePage />} />
-            </Routes>
+            <div className={styles.wrapper}>
+                <Header />
+                <Routes>
+                        {routesConfig.map((route, index) => (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                element={route.element}
+                            />
+                        ))}
+                </Routes>
+            </div>
         </>
     );
 };
