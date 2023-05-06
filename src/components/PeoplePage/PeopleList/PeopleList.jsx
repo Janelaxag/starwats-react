@@ -15,6 +15,7 @@ const PeopleList = ({ people }) => {
     );
 };
 
+
 PeopleList.propTypes = {
     people: PropTypes.array,
 }
