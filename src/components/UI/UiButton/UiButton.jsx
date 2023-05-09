@@ -1,15 +1,15 @@
+import '../index.css'
 import styles from './UiButton.module.css'
-const UiButton = ({ text, onClick, disabled }) => {
+import cn from 'classnames'
+
+const UiButton = ({ text, onClick, disabled, theme='dark', classes }) => {
     return (
-        <div>
             <button
-                className={styles.btns}
+                className={cn(styles.button, styles[theme], classes)}
                 disabled={disabled}
                 onClick={onClick}
             > { text }
             </button>
-
-        </div>
     );
 };
 
